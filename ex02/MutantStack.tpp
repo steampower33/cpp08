@@ -5,14 +5,14 @@ template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>() {}
 
 template <typename T>
-T& MutantStack<T>::operator=(T& other) {
-	if (this != other)
-	return *this;
-}
+MutantStack<T>::MutantStack(T& other) : std::stack<T>(other) {}
 
 template <typename T>
-MutantStack<T>::MutantStack(T& other) : std::stack<T>(other){
-	*this = other;
+T& MutantStack<T>::operator=(T& other) {
+	if (this != other) {
+		std::stack<T>::operator=(other);
+	}
+	return *this;
 }
 
 template <typename T>
