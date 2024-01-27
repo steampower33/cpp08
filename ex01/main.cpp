@@ -27,19 +27,26 @@ int main() {
 		nums.push_back(rand());
     
 	Span sp2 = Span(10000);
-	sp2.addNumbers(nums);
+	try
+	{
+		sp2.addNumbers(nums);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	std::vector<int> sp2Vector = sp2.getVector();
-	std::vector<int>::iterator start = sp2Vector.begin();
-	std::vector<int>::iterator end = sp2Vector.end();
-	std::cout << "Distance: " << std::distance(start, end);
+	const std::vector<int>& sp2Vector = sp2.getVector();
+	std::vector<int>::const_iterator start = sp2Vector.cbegin();
+	std::vector<int>::const_iterator end = sp2Vector.cend();
+	std::cout << "Distance: " << std::distance(start, end) << std::endl;
+	std::cout << "Capacity: " << sp2Vector.capacity() << std::endl;
 	while (start < end)
 	{
-		// std::cout << *start << " ";
+		std::cout << *start << " ";
 		++start;
 	}
 	std::cout << std::endl;
-	std::cout << "Distance: " << std::distance(start, end) << std::endl;
 
     return 0;
 }
