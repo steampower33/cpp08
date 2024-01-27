@@ -36,11 +36,10 @@ int main() {
 		std::cerr << e.what() << '\n';
 	}
 
-	const std::vector<int>& sp2Vector = sp2.getVector();
-	std::vector<int>::const_iterator start = sp2Vector.cbegin();
-	std::vector<int>::const_iterator end = sp2Vector.cend();
+	std::vector<int> sp2Vector = sp2.getVector();
+	std::vector<int>::iterator start = sp2Vector.begin();
+	std::vector<int>::iterator end = sp2Vector.end();
 	std::cout << "Distance: " << std::distance(start, end) << std::endl;
-	std::cout << "Capacity: " << sp2Vector.capacity() << std::endl;
 	while (start < end)
 	{
 		std::cout << *start << " ";

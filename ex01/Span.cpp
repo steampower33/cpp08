@@ -15,7 +15,7 @@ Span::Span(const Span& other) : _v(0, 0) {
 	}
 }
 
-const std::vector<int>& Span::getVector() const {
+std::vector<int> Span::getVector() const {
 	return _v;
 }
 

@@ -16,7 +16,7 @@ public:
 	Span(const Span& other);
 	Span& operator=(const Span& other);
 	unsigned int getSize() const;
-	const std::vector<int>& getVector() const;
+	std::vector<int> getVector() const;
 	int shortestSpan();
 	int longestSpan();
 	~Span();
